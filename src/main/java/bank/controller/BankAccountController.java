@@ -5,6 +5,7 @@ import bank.service.BankAccountService;
 import io.swagger.v3.oas.annotations.Operation;
 import io.swagger.v3.oas.annotations.media.Schema;
 import io.swagger.v3.oas.annotations.tags.Tag;
+import jakarta.validation.Valid;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.http.HttpStatus;
 import org.springframework.http.ResponseEntity;
@@ -26,7 +27,7 @@ public class BankAccountController {
             summary = "Create account",
             description = "Create account giving name and initial amount")
     @PostMapping("/create")
-    private ResponseEntity<BankAccount> createAccount(@RequestBody BankAccount bankAccount){
+    private ResponseEntity<BankAccount> createAccount(@Valid @RequestBody BankAccount bankAccount){
         return new ResponseEntity<>(this.bankAccountService.createAccount(bankAccount),HttpStatus.OK);
     }
 
@@ -55,7 +56,7 @@ public class BankAccountController {
     }
 
     @Operation(
-            summary = "Withdraww money of the account",
+            summary = "Withdraw money of the account",
             description = "Return the info of the bank account after withdrawing money")
     @PostMapping("/{id}/withdraw")
     private ResponseEntity<BankAccount> withdraw(@PathVariable Long id, @RequestBody Map<String, Double> body){
