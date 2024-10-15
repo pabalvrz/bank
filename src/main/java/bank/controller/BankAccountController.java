@@ -34,4 +34,11 @@ public class BankAccountController {
     private BankAccount deposit(@PathVariable Long id, @RequestBody Map<String, Double> body){
         return this.bankAccountService.depositInAccount(id,body.get("amount"));
     }
+
+    @PostMapping("/{id}/withdraw")
+    private BankAccount withdraw(@PathVariable Long id, @RequestBody Map<String, Double> body){
+        return this.bankAccountService.withdrawInAccount(id,body.get("amount"));
+    }
+
+
 }
