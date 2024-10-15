@@ -29,4 +29,11 @@ public class BankAccountServiceImpl implements BankAccountService {
     public BankAccount findById(Long id) {
         return this.bankAccountRepository.findById(id).orElseThrow(() -> new RuntimeException("No existe esa cuenta"));
     }
+
+    @Override
+    public BankAccount depositInAccount(Long id, Double amount) {
+        BankAccount bankAccount = this.bankAccountRepository.findById(id).orElseThrow(() -> new RuntimeException("No existe esa cuenta"));
+        bankAccount.setMoney(bankAccount.getMoney() + amount);
+        return this.bankAccountRepository.save(bankAccount);
+    }
 }
