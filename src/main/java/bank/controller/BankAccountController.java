@@ -6,6 +6,7 @@ import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.web.bind.annotation.*;
 
 import java.util.List;
+import java.util.Map;
 
 @RestController
 @RequestMapping("/api/bankAccount")
@@ -28,4 +29,16 @@ public class BankAccountController {
     private BankAccount getAccount(@PathVariable Long id){
         return this.bankAccountService.findById(id);
     }
+
+    @PostMapping("/{id}/deposit")
+    private BankAccount deposit(@PathVariable Long id, @RequestBody Map<String, Double> body){
+        return this.bankAccountService.depositInAccount(id,body.get("amount"));
+    }
+
+    @PostMapping("/{id}/withdraw")
+    private BankAccount withdraw(@PathVariable Long id, @RequestBody Map<String, Double> body){
+        return this.bankAccountService.withdrawInAccount(id,body.get("amount"));
+    }
+
+
 }

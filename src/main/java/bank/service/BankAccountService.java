@@ -13,4 +13,8 @@ public interface BankAccountService {
     List<BankAccount> listAll();
 
     BankAccount findById(Long id);
+
+    BankAccount depositInAccount(Long id, Double amount);
+
+    BankAccount withdrawInAccount(Long id, Double amount);
 }
