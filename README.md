@@ -42,16 +42,14 @@ Para poder ejecutar el proyecto, necesitas tener instalados:
 
 ### CRUD de Cuentas:
 
-- **GET** `/api/cuentas` - Obtener todas las cuentas.
-- **GET** `/api/cuentas/{id}` - Obtener una cuenta específica por ID.
-- **POST** `/api/cuentas` - Crear una nueva cuenta.
-- **PUT** `/api/cuentas/{id}` - Actualizar una cuenta existente.
-- **DELETE** `/api/cuentas/{id}` - Eliminar una cuenta.
+- **GET** `/api/bankAccount/` - Obtener todas las cuentas.
+- **GET** `/api/bankAccount/{id}` - Obtener una cuenta específica por ID.
+- **POST** `/api/bankAccount/create` - Crear una nueva cuenta.
 
 ### Operaciones de Depósito y Retiro:
 
-- **POST** `/api/cuentas/{id}/depositar` - Depositar dinero en una cuenta.
-- **POST** `/api/cuentas/{id}/retirar` - Retirar dinero de una cuenta.
+- **POST** `/api/cuentas/{id}/deposit` - Depositar dinero en una cuenta.
+- **POST** `/api/cuentas/{id}/withdraw` - Retirar dinero de una cuenta.
 
 ## Documentación con Swagger
 
@@ -63,4 +61,4 @@ La aplicación utiliza una base de datos **H2** en memoria por defecto. Puedes a
 
 - **JDBC URL**: `jdbc:h2:mem:testdb`
 - **Usuario**: `sa`
-- **Contraseña**: *(dejar vacío)*
+- **Contraseña**: `password`
