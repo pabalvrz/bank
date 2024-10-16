@@ -38,9 +38,29 @@ Para poder ejecutar el proyecto, necesitas tener instalados:
 - Java 17+
 - Maven 3.8+
   
-## Ejecución del Proyecto
+## Endpoints Principales
 
-1. Clona el repositorio:
+### CRUD de Cuentas:
 
-   ```bash
-   git clone https://github.com/tu_usuario/tu_repositorio.git
+- **GET** `/api/cuentas` - Obtener todas las cuentas.
+- **GET** `/api/cuentas/{id}` - Obtener una cuenta específica por ID.
+- **POST** `/api/cuentas` - Crear una nueva cuenta.
+- **PUT** `/api/cuentas/{id}` - Actualizar una cuenta existente.
+- **DELETE** `/api/cuentas/{id}` - Eliminar una cuenta.
+
+### Operaciones de Depósito y Retiro:
+
+- **POST** `/api/cuentas/{id}/depositar` - Depositar dinero en una cuenta.
+- **POST** `/api/cuentas/{id}/retirar` - Retirar dinero de una cuenta.
+
+## Documentación con Swagger
+
+Una vez que el servidor esté en funcionamiento, puedes acceder a la documentación completa de la API generada con Swagger en la siguiente URL: http://localhost:8080/swagger-ui.html
+
+La aplicación utiliza una base de datos **H2** en memoria por defecto. Puedes acceder a la consola de la base de datos H2 en: http://localhost:8080/h2-console
+
+### Credenciales de la Base de Datos:
+
+- **JDBC URL**: `jdbc:h2:mem:testdb`
+- **Usuario**: `sa`
+- **Contraseña**: *(dejar vacío)*
