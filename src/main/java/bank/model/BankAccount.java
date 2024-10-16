@@ -1,8 +1,6 @@
 package bank.model;
 
-import jakarta.persistence.Entity;
-import jakarta.persistence.GeneratedValue;
-import jakarta.persistence.Id;
+import jakarta.persistence.*;
 import jakarta.validation.constraints.NotBlank;
 import jakarta.validation.constraints.NotNull;
 import lombok.Data;
@@ -15,6 +13,10 @@ public class BankAccount {
     @Id
     @GeneratedValue
     private Long id;
+
+    @Column(unique=true)
+    @NotNull(message = "NIF is mandatory")
+    private String nif;
 
     @NotBlank(message = "Holder Name is mandatory")
     private String holderName;
